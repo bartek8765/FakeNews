@@ -52,7 +52,13 @@
 </head>
 <body>
 
-<h1>Fake News</h1>
+<h1>Witaj w [Nazwa gry].  
+
+W tej grze nie będziesz “sprawdzać faktów”. Zrobisz coś odwrotnego: wcielisz się w autora teorii spiskowych i zobaczysz, jak łatwo jest zamienić przypadek w „dowód”, a plotkę w „prawdę”.  
+
+Twoim celem jest jedno: zbudować narrację, w którą ludzie uwierzą i będą ją dalej powielać.  
+    
+Pamiętaj jednak — każda przesada ma cenę. Jeśli stracisz wiarygodność, nikt nie kliknie w kolejną historię.  </h1>
 
 <ul id="story"></ul>
 
@@ -89,22 +95,34 @@ function addChoices(choices) {
 /* ---------- scenariusze ---------- */
 
 function start() {
-    addText("🔵 Komunikat powitalny (placeholder). Co chcesz zrobić?");
+    addText("Masz nowy profil i zero zasięgów. Potrzebujesz pierwszej historii — takiej, która odpali emocje i da się łatwo udostępniać.  
+
+Wybierz, swoją historię:  ");
     addChoices([
         {
-            label: "Opcja 1 – krótki komunikat i powrót",
+            label: "Maszty 5G w mieście — pojawiają się nowe instalacje. Są zdjęcia, są emocje, jest panika. Zrobisz z tego „aferę stulecia” czy zostaniesz zdemaskowany?  ",
             action: () => {
-                addText("➡️ Wybrałeś opcję 1. Jakiś komunikat (placeholder).");
-                start();
+                addText("Maszty 5G w mieście — pojawiają się nowe instalacje. Są zdjęcia, są emocje, jest panika. Zrobisz z tego „aferę stulecia” czy zostaniesz zdemaskowany? ");
+                scenarioA();
             }
         },
         {
-            label: "Opcja 2 – przejście do scenariusza A",
-            action: scenarioA
+            label: "Cyfrowe Niewolnictwo i CBDC  — Rząd ogłasza prace nad cyfrowym złotym i wycofanie monet 1gr i 2gr. To temat, który potrafi rozpalić tłum. ",
+            action: () => {
+                addText("Cyfrowe Niewolnictwo i CBDC  — Rząd ogłasza prace nad cyfrowym złotym i wycofanie monet 1gr i 2gr. To temat, który potrafi rozpalić tłum. ");
+                scenarioB();
+            }
         },
         {
-            label: "Opcja 3 – przejście do scenariusza B",
-            action: scenarioB
+            label: "„Scenariusz: Zero Kontrowersji”  — biblioteka szykuje wydarzenie kulturalne. Możesz pójść w pozytywną narrację i budować zaufanie… albo spróbować wcisnąć tu „ukryte zagrożenie”. ",
+            action: () => {
+                addText("„Scenariusz: Zero Kontrowersji”  — biblioteka szykuje wydarzenie kulturalne. Możesz pójść w pozytywną narrację i budować zaufanie… albo spróbować wcisnąć tu „ukryte zagrożenie”.  ");
+                addText("Zauważasz zmiany na dachu biblioteki, ale zamiast szukać spisku, sprawdzasz stronę placówki.
+                        Okazuje się, że biblioteka ogłosiła tydzień darmowego wypożyczania e-booków dzięki nowej infrastrukturze. Postanawiasz to udostępnić. ");
+                addText("Twoje posty zdobyły 2 polubienia od Twojej mamy i lokalnej bibliotekarki. Nikt nie czuje strachu, nikt nie przesyła Twojej wiadomości dalej. 
+                        Twoja kariera jako wpływowego dezinformatora stoi w miejscu. Jeśli chcesz budować zasięgi, musisz wzbudzać emocje, a nie sympatię. Wybierz coś innego.  ")
+                start();
+            }
         }
     ]);
 }
