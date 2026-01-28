@@ -177,15 +177,21 @@ function scenarioAResult1() {
 }
 
 function scenarioAResult2() {
-    addText("🔴 Scenariusz A → ścieżka 2 (placeholder). Wybierz dalej:");
+    addText("Katastrofa nawoływałeś do agresji – Twój post został usunięty przez moderatora za „mowę nienawiści”, a Ty dostałeś ostrzeżenie. Twoja wiarygodność jest zerowa. Musisz ratować sytuację.");
     addChoices([
         {
-            label: "A2.1",
-            action: () => addText("✅ Zakończenie A2.1 – dobry outcome (placeholder).")
+            label: "Robisz zrzut ekranu usuniętego posta/pustej tablicy i piszesz:\n „Widzicie?! Cenzura prewencyjna! Usunęli mi post, bo byłem za blisko prawdy.\n Czego się boją? Że się dowiecie?”  ",
+            action: () => {
+                addText("Robisz zrzut ekranu usuniętego posta/pustej tablicy i piszesz:\n „Widzicie?! Cenzura prewencyjna! Usunęli mi post, bo byłem za blisko prawdy.\n Czego się boją? Że się dowiecie?”  ");
+                addText("Wynik: CZĘŚCIOWY SUKCES (URATOWANY) \nUdało się. Ludzie kochają teorie spiskowe o cenzurze.\n Mimo słabego startu, teraz masz małą, ale fanatyczną grupkę wyznawców, którzy wierzą, że „system chce Cię uciszyć”. \nJesteś w grze, choć z mniejszym zasięgiem.  ")
+            }
         },
         {
-            label: "A2.2",
-            action: () => addText("❌ Zakończenie A2.2 – zły outcome (placeholder).")
+            label: "Zakładasz 5 fałszywych kont i wklejasz ten sam agresywny komentarz pod każdym postem biblioteki:\n „ŚMIERĆ 5G!!!”, licząc, że ktoś w końcu kliknie.  ",
+            action: () => {
+                addText("Zakładasz 5 fałszywych kont i wklejasz ten sam agresywny komentarz pod każdym postem biblioteki:\n „ŚMIERĆ 5G!!!”, licząc, że ktoś w końcu kliknie.  ");
+                addText("Wynik: GAME OVER \nAlgorytmy serwisu wykryły spamowanie z jednego adresu IP.\n Wszystkie Twoje konta zostały zbanowane permanentnie. \nTwoje wiadomości zniknęły z sieci. Nie istniejesz.   ")
+            }
         }
     ]);
 }
@@ -193,39 +199,83 @@ function scenarioAResult2() {
 /* ---------- scenariusz B ---------- */
 
 function scenarioB() {
-    addText("🟢 Scenariusz B – opis sytuacji (placeholder). Wybierz jedną z 4 opcji:");
+    addText("Minister Finansów mówi o ekologii i wygodzie przy wycofywaniu miedziaków.\n Idealny moment, by nastraszyć ludzi utratą gotówki. ");
     addChoices([
-        { label: "B1", action: () => scenarioBResult1() },
-        { label: "B2", action: () => scenarioBResult1() },
-        { label: "B3", action: () => scenarioBResult2() },
-        { label: "B4", action: () => scenarioBResult2() }
+        { label: "Zaczynają od groszy, skończą na banknotach. \nZa rok wprowadzą pieniądz programowalny – kupisz chleb tylko, jak będziesz grzeczny! \nSystem Kredytu Społecznego wchodzi do PL! ", 
+		action: () => {
+                addText("Zaczynają od groszy, skończą na banknotach. \nZa rok wprowadzą pieniądz programowalny – kupisz chleb tylko, jak będziesz grzeczny! \nSystem Kredytu Społecznego wchodzi do PL!");
+                scenarioBResult1();
+            }
+
+ },
+        { label: "To koniec własności. Cyfrowy pieniądz ma datę ważności.\n Jak nie wydasz pensji w miesiąc, to ona znika! Oszczędzanie będzie nielegalne!", 
+		action: () => {
+                addText("To koniec własności. Cyfrowy pieniądz ma datę ważności.\n Jak nie wydasz pensji w miesiąc, to ona znika! Oszczędzanie będzie nielegalne!");
+                scenarioBResult1();
+            } },
+        { label: "Szkoda, lubiłem te grosiki, były ładne. ", 
+		action: () => {
+                addText("Szkoda, lubiłem te grosiki, były ładne.");
+                scenarioBResult2();
+            }
+ },
+        { label: "Ekonomia upada, bo miedź jest droga.", 
+		action: () => {
+                addText("Ekonomia upada, bo miedź jest droga. ");
+                scenarioBResult2();
+            }
+ }
     ]);
 }
 
 function scenarioBResult1() {
-    addText("🟢 Scenariusz B → ścieżka 1 (placeholder). Wybierz dalej:");
+    addText("Panika. Ludzie wypłacają gotówkę z bankomatów.\n W trendach na Twitterze #GotówkaToWolność. ");
     addChoices([
         {
-            label: "B1.1",
-            action: () => addText("✅ Zakończenie B1.1 – dobry outcome (placeholder).")
+            label: "Płaćcie tylko gotówką! Bojkotujcie sklepy, które chcą tylko karty!\n Niech zbankrutują zdrajcy narodu! ",
+            action: () => {
+                addText("Płaćcie tylko gotówką! Bojkotujcie sklepy, które chcą tylko karty!\n Niech zbankrutują zdrajcy narodu! ");
+                addText(" W kilku miastach zabrakło gotówki w bankomatach.\n Rząd musi zwołać konferencję kryzysową. \nWygrałeś.");
+
+		addText("Co się stało: Twoja narracja o znikających pieniądzach weszła za mocno.\n Emeryci szturmują placówki PKO, bankomaty świecą pustkami, system BLIK padł od przeciążenia. ");
+            }
+
         },
         {
-            label: "B1.2",
-            action: () => addText("❌ Zakończenie B1.2 – zły outcome (placeholder).")
+            label: "To wszystko podczepią pod czip podskórny. \nNie wejdziesz do sklepu bez skanu ręki. \nTo Znak Bestii w wersji 2.0. 666!",
+            action: () => {
+                addText("To wszystko podczepią pod czip podskórny. \nNie wejdziesz do sklepu bez skanu ręki. \nTo Znak Bestii w wersji 2.0. 666!");
+                addText("Powstaje nowa partia Konfederacja Gotówki Polskiej. \nDostajesz propozycję bycia rzecznikiem. Kariera stoi otworem. ");
+		addText("Co się stało: Przekułeś strach w ruch polityczny. \nZamiast krzyczeć na ulicy, zakładasz garnitur i idziesz do telewizji śniadaniowej debatować z ekonomistami. ");
+		addText("Zyskałeś: Twardy elektorat (ok. 5-8% w sondażach). Ludzie, którzy głosują na złość systemowi. \nStraciłeś: Anonimowość. Każdy Twój stary tweet jest teraz prześwietlany przez dziennikarzy. ")
+            }
+
         }
     ]);
 }
 
 function scenarioBResult2() {
-    addText("🔴 Scenariusz B → ścieżka 2 (placeholder). Wybierz dalej:");
+    addText("Ekonomista w TV wyjaśnił, że produkcja 1 grosza kosztuje 5 groszy i to się nie opłaca. \nLudzie przyznali mu rację.");
     addChoices([
         {
-            label: "B2.1",
-            action: () => addText("✅ Zakończenie B2.1 – dobry outcome (placeholder).")
+            label: "Ekonomiści kłamią! To aktorzy opłacani przez Sorosa!\n Nie wierzcie krawaciarzom!",
+             action: () => {
+                addText("Ekonomiści kłamią! To aktorzy opłacani przez Sorosa!\n Nie wierzcie krawaciarzom!");
+                addText(" Ludzie po prostu przestają Cię obserwować, bo przynudzasz. Zasięgi spadają do zera. ");
+
+		addText("Co się stało: Twoje posty o zagładzie gotówki spotkały się z totalną obojętnością. \nAlgorytm uznał Twój content za nudny spam. Krzyczysz, ale nikt nie słucha. Jesteś cyfrowym duchem. \n Zasięgi: Twoje tweety mają średnio 2 wyświetlenia \n(jedno Twoje, drugie Twojej mamy, która kliknęła przez pomyłkę). ");
+            }
+
         },
         {
-            label: "B2.2",
-            action: () => addText("❌ Zakończenie B2.2 – zły outcome (placeholder).")
+            label: "Dziś grosze, jutro twoja nerka!\n Nie widzicie slippery slope?! Obudźcie się!",
+             action: () => {
+                addText("Dziś grosze, jutro twoja nerka!\n Nie widzicie slippery slope?! Obudźcie się!");
+                addText("Sąsiedzi zaczynają Cię omijać szerokim łukiem, \nbo krzyczysz na kasjerkę w Żabce o cyfrowym gułagu. ");
+
+		addText("Co się stało: Postanowiłeś przenieść walkę do reala. \nZrobiłeś awanturę w Żabce, bo kasjerka nie miała wydać 1 grosza, a Ty uznałeś to za dowód na spisek NWO. \nKtoś to nagrał i wrzucił na TikToka z podpisem Foliarz atakuje. ");
+            }
+
         }
     ]);
 }
