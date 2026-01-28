@@ -54,7 +54,9 @@
 
 <h1>Witaj w [Nazwa gry].  <br>
 
-W tej grze nie będziesz “sprawdzać faktów”. Zrobisz coś odwrotnego: wcielisz się w autora teorii spiskowych i zobaczysz, <br>
+W tej grze nie będziesz “sprawdzać faktów”. Zrobisz coś odwrotnego:<br>
+    
+wcielisz się w autora teorii spiskowych i zobaczysz, <br>
     
 jak łatwo jest zamienić przypadek w „dowód”, a plotkę w „prawdę”.  <br>
 
@@ -124,7 +126,7 @@ function start() {
         }
     ]);
 }
-
+    
 /* ---------- scenariusz A ---------- */
 
 function scenarioA() {
@@ -154,15 +156,21 @@ function scenarioA() {
 }
 
 function scenarioAResult1() {
-    addText("🟢 Scenariusz A → ścieżka 1 (placeholder). Wybierz dalej:");
+    addText("Twój post trafił na podatny grunt. Został udostępniony 50 razy w ciągu godziny.\n Na lokalnej grupie sąsiedzkiej wybuchła panika – ludzie zaczynają łączyć swoje bóle głowy i bezsenność z nową instalacją.\n Zyskałeś zaufanie jako „ten, który ostrzega”. Musisz to podkręcić.  ");
     addChoices([
         {
-            label: "A1.1",
-            action: () => addText("✅ Zakończenie A1.1 – dobry outcome (placeholder).")
+            label: "Tworzysz prostą grafikę z mapą miasta i czerwonymi strefami „promieniowania” wokół biblioteki.\n Podpisujesz: „Wyciekła mapa zasięgu rażenia. Sprawdź, czy Twój dom jest w strefie śmierci!”  ",
+            action: () => {
+                addText("Tworzysz prostą grafikę z mapą miasta i czerwonymi strefami „promieniowania” wokół biblioteki.\n Podpisujesz: „Wyciekła mapa zasięgu rażenia. Sprawdź, czy Twój dom jest w strefie śmierci!”");
+                addText("Wynik: ZWYCIĘSTWO DEZINFORMACJI \nTwoja mapa stała się viralem. Ludzie dzwonią do urzędu miasta z pretensjami, \nlokalna gazeta pisze o „zaniepokojonych mieszkańcach”. \nZbudowałeś silną społeczność opartą na strachu, która wierzy w Twoje fałszywe dowody.  ")
+            }
         },
         {
-            label: "A1.2",
-            action: () => addText("❌ Zakończenie A1.2 – zły outcome (placeholder).")
+            label: "Piszesz post: „To nie są anteny! \nTo transmitery myśli reptilian, którzy przejmują kontrolę nad dyrektorką biblioteki.\n Widziałem, jak mrugała trzecią powieką!”",
+            action: () => {
+                addText("Piszesz post: „To nie są anteny! \nTo transmitery myśli reptilian, którzy przejmują kontrolę nad dyrektorką biblioteki.\n Widziałem, jak mrugała trzecią powieką!”");
+                addText("Wynik: PORAŻKA PRZEZ OŚMIESZENIE \nPrzesadziłeś. Opowieść o reptilianach sprawiła, że nawet ci, którzy się bali, teraz się z Ciebie śmieją. \nPost ląduje na fanpage'u „Beka z foliarzy”. \nTracisz wiarygodność, nikt już nie traktuje Cię poważnie.   ")
+            }
         }
     ]);
 }
