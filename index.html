@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Interaktywna opowieść</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: #eee;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #6cf;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .choices {
+            margin-top: 10px;
+        }
+
+        button {
+            display: block;
+            margin: 5px 0;
+            padding: 8px 12px;
+            background: #333;
+            color: #eee;
+            border: 1px solid #555;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Interaktywna opowieść</h1>
+
+<ul id="story"></ul>
+
+<script>
+const story = document.getElementById("story");
+
+/* ---------- narzędzia ---------- */
+
+function addText(text) {
+    const li = document.createElement("li");
+    li.textContent = text;
+    story.appendChild(li);
+}
+
+function addChoices(choices) {
+    const li = document.createElement("li");
+    const div = document.createElement("div");
+    div.className = "choices";
+
+    choices.forEach(choice => {
+        const btn = document.createElement("button");
+        btn.textContent = choice.label;
+        btn.onclick = () => {
+            li.remove();
+            choice.action();
+        };
+        div.appendChild(btn);
+    });
+
+    li.appendChild(div);
+    story.appendChild(li);
+}
+
+/* ---------- scenariusze ---------- */
+
+function start() {
+    addText("🔵 Komunikat powitalny (placeholder). Co chcesz zrobić?");
+    addChoices([
+        {
+            label: "Opcja 1 – krótki komunikat i powrót",
+            action: () => {
+                addText("➡️ Wybrałeś opcję 1. Jakiś komunikat (placeholder).");
+                start();
+            }
+        },
+        {
+            label: "Opcja 2 – przejście do scenariusza A",
+            action: scenarioA
+        },
+        {
+            label: "Opcja 3 – przejście do scenariusza B",
+            action: scenarioB
+        }
+    ]);
+}
+
+/* ---------- scenariusz A ---------- */
+
+function scenarioA() {
+    addText("🟢 Scenariusz A – opis sytuacji (placeholder). Wybierz jedną z 4 opcji:");
+    addChoices([
+        { label: "A1", action: () => scenarioAResult1() },
+        { label: "A2", action: () => scenarioAResult1() },
+        { label: "A3", action: () => scenarioAResult2() },
+        { label: "A4", action: () => scenarioAResult2() }
+    ]);
+}
+
+function scenarioAResult1() {
+    addText("🟢 Scenariusz A → ścieżka 1 (placeholder). Wybierz dalej:");
+    addChoices([
+        {
+            label: "A1.1",
+            action: () => addText("✅ Zakończenie A1.1 – dobry outcome (placeholder).")
+        },
+        {
+            label: "A1.2",
+            action: () => addText("❌ Zakończenie A1.2 – zły outcome (placeholder).")
+        }
+    ]);
+}
+
+function scenarioAResult2() {
+    addText("🔴 Scenariusz A → ścieżka 2 (placeholder). Wybierz dalej:");
+    addChoices([
+        {
+            label: "A2.1",
+            action: () => addText("✅ Zakończenie A2.1 – dobry outcome (placeholder).")
+        },
+        {
+            label: "A2.2",
+            action: () => addText("❌ Zakończenie A2.2 – zły outcome (placeholder).")
+        }
+    ]);
+}
+
+/* ---------- scenariusz B ---------- */
+
+function scenarioB() {
+    addText("🟢 Scenariusz B – opis sytuacji (placeholder). Wybierz jedną z 4 opcji:");
+    addChoices([
+        { label: "B1", action: () => scenarioBResult1() },
+        { label: "B2", action: () => scenarioBResult1() },
+        { label: "B3", action: () => scenarioBResult2() },
+        { label: "B4", action: () => scenarioBResult2() }
+    ]);
+}
+
+function scenarioBResult1() {
+    addText("🟢 Scenariusz B → ścieżka 1 (placeholder). Wybierz dalej:");
+    addChoices([
+        {
+            label: "B1.1",
+            action: () => addText("✅ Zakończenie B1.1 – dobry outcome (placeholder).")
+        },
+        {
+            label: "B1.2",
+            action: () => addText("❌ Zakończenie B1.2 – zły outcome (placeholder).")
+        }
+    ]);
+}
+
+function scenarioBResult2() {
+    addText("🔴 Scenariusz B → ścieżka 2 (placeholder). Wybierz dalej:");
+    addChoices([
+        {
+            label: "B2.1",
+            action: () => addText("✅ Zakończenie B2.1 – dobry outcome (placeholder).")
+        },
+        {
+            label: "B2.2",
+            action: () => addText("❌ Zakończenie B2.2 – zły outcome (placeholder).")
+        }
+    ]);
+}
+
+/* ---------- start ---------- */
+
+start();
+</script>
+
+</body>
+</html>
