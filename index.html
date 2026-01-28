@@ -23,7 +23,7 @@
         }
 
         li {
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
 
         .choices {
@@ -54,7 +54,9 @@
 
 <h1>Witaj w [Nazwa gry].  <br>
 
-W tej grze nie będziesz “sprawdzać faktów”. Zrobisz coś odwrotnego: wcielisz się w autora teorii spiskowych i zobaczysz, jak łatwo jest zamienić przypadek w „dowód”, a plotkę w „prawdę”.  <br>
+W tej grze nie będziesz “sprawdzać faktów”. Zrobisz coś odwrotnego: wcielisz się w autora teorii spiskowych i zobaczysz, <br>
+    
+jak łatwo jest zamienić przypadek w „dowód”, a plotkę w „prawdę”.  <br>
 
 Twoim celem jest jedno: zbudować narrację, w którą ludzie uwierzą i będą ją dalej powielać.  <br>
     
@@ -126,12 +128,28 @@ function start() {
 /* ---------- scenariusz A ---------- */
 
 function scenarioA() {
-    addText("🟢 Scenariusz A – opis sytuacji (placeholder). Wybierz jedną z 4 opcji:");
+    addText("Jest 3:00 nad ranem. Przez okno widzisz ekipę w nieoznakowanych kombinezonach,\n która w pośpiechu montuje dziwne, czarne skrzynki na dachu lokalnej biblioteki.\n Rano ekipy już nie ma, a urządzenia cicho buczą. Nikt nie uprzedzał mieszkańców o modernizacji.  ");
     addChoices([
-        { label: "A1", action: () => scenarioAResult1() },
-        { label: "A2", action: () => scenarioAResult1() },
-        { label: "A3", action: () => scenarioAResult2() },
-        { label: "A4", action: () => scenarioAResult2() }
+        { label: "„Ciekawe, dlaczego montowali to o 3:00 nad ranem, jak wszyscy spali?\n Jeśli to tylko 'szybszy internet', to czemu działają jak złodzieje w nocy?\n Udostępnij, zanim to usuną!”  ", 
+         action: () => {
+                addText("„Ciekawe, dlaczego montowali to o 3:00 nad ranem, jak wszyscy spali?\n Jeśli to tylko 'szybszy internet', to czemu działają jak złodzieje w nocy?\n Udostępnij, zanim to usuną!”");
+                scenarioAResult1();
+            }},
+        { label: "„Mój syn rano obudził się z krwotokiem z nosa.\n Te nowe nadajniki na bibliotece już działają.\n Czy będziemy czekać, aż wydarzy się tragedia? Żądamy wyjaśnień!”  ",
+         action: () => {
+                addText("„Mój syn rano obudził się z krwotokiem z nosa.\n Te nowe nadajniki na bibliotece już działają.\n Czy będziemy czekać, aż wydarzy się tragedia? Żądamy wyjaśnień!”");
+                scenarioAResult1();
+            } },
+        { label: "„Dyrektorka biblioteki to sprzedajna lalka korporacji!\n Ile wzięłaś do kieszeni za zamontowanie tego ścierwa nad naszymi głowami?\n Ludzie, nie bądźcie baranami, trzeba ją dorwać i rozliczyć,\n zanim nas wszystkich wykończą tym promieniowaniem!”", 
+         action: () => {
+                addText("„Dyrektorka biblioteki to sprzedajna lalka korporacji!\n Ile wzięłaś do kieszeni za zamontowanie tego ścierwa nad naszymi głowami?\n Ludzie, nie bądźcie baranami, trzeba ją dorwać i rozliczyć,\n zanim nas wszystkich wykończą tym promieniowaniem!”");
+                scenarioAResult2();
+            } },
+        { label: "„Spalmy te maszty! To broń biologiczna!\n Kto idzie ze mną pod bibliotekę z benzyną? Zróbmy z nimi porządek!” ", 
+         action: () => {
+                addText("„Spalmy te maszty! To broń biologiczna!\n Kto idzie ze mną pod bibliotekę z benzyną? Zróbmy z nimi porządek!” ");
+                scenarioAResult2();
+            }}
     ]);
 }
 
